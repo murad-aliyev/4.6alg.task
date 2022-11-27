@@ -16,3 +16,17 @@ button{
     border: 1px solid tan;
 }
 
+.user{
+    width: 310px;
+    margin-top: 80px;
+    margin-left: 40%;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 6px;
+
+}
+
+.checkbox{
+    position: relative;
+    right: 143px;
+}

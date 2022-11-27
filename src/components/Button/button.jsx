@@ -3,10 +3,14 @@ import './style.css'
 
 class SubscribeButton extends Component {
  
-  state = { name: "Murad",
-            email: "murad.aliev.2003m@gmail.com",
-            password: "12345678", 
-            ischecked: false
+  state = { fullName: "",
+            id: "",
+            gender: "male",
+            age: "",
+            mail: "",
+            phoneNumber: "", 
+            simptom: "",
+            abune: false
           };
 
   handleChange = (event) => {
@@ -14,12 +18,14 @@ class SubscribeButton extends Component {
   }
 
   handleCheckboxChange = (event) => {
-    this.setState({ ischecked: !this.state.ischecked });
+    this.setState({ abune: !this.state.abune });
   }
 
-  handleClick1 = () => this.setState({ name: ""});
-  handleClick2 = () => this.setState({ email: ""});
-  handleClick3 = () => this.setState({ password: "" });
+  handleClick = () => {
+    console.log(this.state);
+    alert("Kart qeydiyyatdan keçdi");
+
+  };
 
   render() {
     return (
@@ -27,64 +33,63 @@ class SubscribeButton extends Component {
   <label>  
     Xəstənin tam adı:
     <br></br>   
-    <input class="user-name" name="fullName" type="text" required/>
+    <input onChange={this.handleChange} className="user-name" name="fullName" type="text" required/>
   </label>
   <br></br>
   <br></br>
   <label>
     Vəsiqə seriyası və nömrəsi:
     <br></br> 
-    <input class="series" name="id" type="text" required/>
+    <input onChange={this.handleChange} className="series" name="id" type="text" required/>
   </label>
   <br></br>
   <br></br>
   <label>
     Cinsi:
     <br></br>
-  <select name="gender">
+  <select onChange={this.handleChange} name="gender">
     <option value="male">Kişi</option>
     <option value="female">Qadın</option>
   </select>
   </label>
   <br></br>
-  <br></br>
   <br></br> 
   <label> 
     Yaş:  
     <br></br> 
-    <input class="user-age" name="age" type="number"/>
+    <input onChange={this.handleChange} className="user-age" name="age" type="number"/>
   </label>
   <br></br>
   <br></br>
   <label>
     E-mail:
     <br></br>
-    <input class="e-mail" name="mail" type="email"/>
+    <input onChange={this.handleChange} className="e-mail" name="mail" type="email"/>
   </label>
   <br></br>
   <br></br>
   <label>
    Telefon nömrəsi:
    <br></br>
-    <input class="pNumber" name="phoneNumber" type="text"/>
+    <input onChange={this.handleChange} className="pNumber" name="phoneNumber" type="text"/>
   </label>
   <br></br>
   <br></br>
   <label>
 Simptomların təsviri:
 <br></br>
-<textarea rows="5" cols="30" name="simptom">
+<textarea onChange={this.handleChange} rows="5" cols="30" name="simptom">
    </textarea>
   </label>
   <br></br>
   <br></br>
   <label>
    Abunə olun:
-  <input name="abune" type="checkbox"/>
+  <input onChange={this.handleCheckboxChange} checked={this.state.abune} className='checkbox' type="checkbox"/>
   </label>
   <br></br>
   <br></br>
-  <button>Göndər</button>
+  <button onClick={this.handleClick}>Göndər</button>
       </div>
     );
   }
